@@ -42,4 +42,12 @@ public class Player {
 		this.name = name;
 	}
 	
+	public int getId() {
+		return this.player_id;
+	}
+	
+	public void setId(int newId) {
+		this.player_id = newId;
+	}
+	
 }

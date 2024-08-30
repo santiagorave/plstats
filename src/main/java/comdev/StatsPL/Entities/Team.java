@@ -21,7 +21,7 @@ public class Team {
 	private int team_id;
 	private String name;
 	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="player_id")
+	@JoinColumn(name="team_id",nullable=false)
 	private List<Player> players = new ArrayList<>();
 
 	public Team() {
@@ -44,6 +44,10 @@ public class Team {
 	}
 	public void setPlayers(List<Player> newPlayers){
 		this.players = newPlayers;
+	}
+	
+	public void addPlayer(Player p) {
+		players.add(p);
 	}
 	
 
