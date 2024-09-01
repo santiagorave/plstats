@@ -22,7 +22,7 @@ public class PlayerController {
 	PlayerService service;
 	
 	
-	
+	@GetMapping
 	public List<Player> allPlayers(){
 		return service.getPlayers();
 	}
