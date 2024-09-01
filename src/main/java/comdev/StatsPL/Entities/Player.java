@@ -1,9 +1,12 @@
 package comdev.StatsPL.Entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,6 +20,10 @@ public class Player {
 	private String nationality;
 	private String nationality_img;
 	private String position;
+	
+	@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,  CascadeType.REFRESH})
+	@JoinColumn(name="team_id", referencedColumnName = "team_id")
+	private Team team;
 	public String getPosition() {
 		return position;
 	}
@@ -48,6 +55,14 @@ public class Player {
 	
 	public void setId(int newId) {
 		this.player_id = newId;
+	}
+	
+	public String getTeam() {
+		return this.team.getName();
+	}
+	
+	public void setTeamName(Team newTeam) {
+			this.team.setName(newTeam.getName());
 	}
 	
 }

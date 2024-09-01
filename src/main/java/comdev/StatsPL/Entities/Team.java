@@ -20,8 +20,8 @@ public class Team {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int team_id;
 	private String name;
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="team_id",nullable=false)
+	@OneToMany(mappedBy="team",cascade=CascadeType.ALL)
+	
 	private List<Player> players = new ArrayList<>();
 
 	public Team() {
@@ -48,6 +48,7 @@ public class Team {
 	
 	public void addPlayer(Player p) {
 		players.add(p);
+		p.setTeamName(this);
 	}
 	
 
