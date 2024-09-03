@@ -20,6 +20,7 @@ public class Player {
 	private String nationality;
 	private String nationality_img;
 	private String position;
+	private int goals;
 	
 	@ManyToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,  CascadeType.REFRESH})
 	@JoinColumn(name="team_id", referencedColumnName = "team_id")
@@ -64,5 +65,13 @@ public class Player {
 	public void setTeamName(Team newTeam) {
 			this.team.setName(newTeam.getName());
 	}
+	public int getGoals() {
+		return goals;
+	}
+	public void setGoals(int goals) {
+		this.goals = goals;
+	}
+	
+
 	
 }

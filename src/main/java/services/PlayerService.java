@@ -37,4 +37,10 @@ public class PlayerService {
 			
 			return repo.save(p);
 	}
+	
+	public Player updateGoals(int id, int goals) {
+		Player p = repo.findById(id).orElseThrow(() -> new ResourceNotFoundException("Player not found with id:" + id));
+		p.setGoals(goals);
+		return repo.save(p);
+	}
 }

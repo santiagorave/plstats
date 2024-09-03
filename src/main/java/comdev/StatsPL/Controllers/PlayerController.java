@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -38,6 +39,11 @@ public class PlayerController {
 	@PutMapping("/{id}")
 	public Player updatePlayer(@PathVariable int id, @RequestBody Player player) {
 		return service.updatePlayer(id,player);
+	}
+	
+	@PatchMapping("/{id}/goals")
+	public Player updateGoals(@PathVariable int id, @RequestBody int goals) {
+		return service.updateGoals(id,goals);
 	}
 	
 	
