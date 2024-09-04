@@ -21,12 +21,18 @@ public class Team {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int team_id;
 	private String name;
+	private String team_img;
 	@OneToMany(mappedBy="team",cascade=CascadeType.ALL)
 	
 	private List<Player> players = new ArrayList<>();
 
 	public Team() {
 
+	}
+	
+	public interface ProjectIdAndName{
+	    String getId();
+	    String getName();
 	}
 
 	public Team(String name, List<Player> players) {
@@ -50,6 +56,14 @@ public class Team {
 	public void addPlayer(Player p) {
 		players.add(p);
 		p.setTeamName(this);
+	}
+
+	public String getTeam_img() {
+		return team_img;
+	}
+
+	public void setTeam_img(String team_img) {
+		this.team_img = team_img;
 	}
 	
 

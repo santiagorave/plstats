@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import comdev.StatsPL.Entities.Player;
 import comdev.StatsPL.Entities.Team;
+import comdev.StatsPL.Entities.Team.ProjectIdAndName;
 import comdev.StatsPL.Repositoires.TeamRepository;
 
 
@@ -35,5 +36,8 @@ public class TeamService {
 	
 	public void deleteTeam(int id) {
 		 repo.deleteById(id);
+	}
+	public List<Object[]> getBasicInfo() {
+		return repo.getBasicInfoTeams();
 	}
 }

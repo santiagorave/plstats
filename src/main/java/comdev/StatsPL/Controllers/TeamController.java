@@ -3,6 +3,7 @@ package comdev.StatsPL.Controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,11 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import comdev.StatsPL.Entities.Player;
 import comdev.StatsPL.Entities.Team;
+import comdev.StatsPL.Entities.Team.ProjectIdAndName;
 import services.PlayerService;
 import services.TeamService;
 
 @RestController
 @RequestMapping("/teams")
+@CrossOrigin(origins = {"http://127.0.0.1:5173"})
 public class TeamController {
 	@Autowired
 	TeamService service;
@@ -26,6 +29,7 @@ public class TeamController {
 	PlayerService servicePlayer;
 	
 	@GetMapping
+
 	public List<Team> getTeams(){
 		return service.getTeams();
 	}
@@ -43,5 +47,10 @@ public class TeamController {
 	@DeleteMapping("/{id}")
 	public void deleteTeam(@PathVariable int id) {
 		 service.deleteTeam(id);
+	}
+	
+	@GetMapping("/basicInfo")
+	public List<Object[]> getBasicInfo() {
+		return service.getBasicInfo();
 	}
 }
