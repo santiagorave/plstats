@@ -29,7 +29,6 @@ public class TeamController {
 	PlayerService servicePlayer;
 	
 	@GetMapping
-
 	public List<Team> getTeams(){
 		return service.getTeams();
 	}

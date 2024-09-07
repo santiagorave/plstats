@@ -22,8 +22,16 @@ public class Team {
 	private int team_id;
 	private String name;
 	private String team_img;
-	@OneToMany(mappedBy="team",cascade=CascadeType.ALL)
-	
+	private int points;
+	private int position;
+	private int matchesPlayed;
+	private int matchesWon;
+	private int matchesDrawn;
+	private int matchesLost;
+	private int gf;
+	private int ga;
+	private int gd;
+	@OneToMany(mappedBy="team",cascade=CascadeType.ALL)		
 	private List<Player> players = new ArrayList<>();
 
 	public Team() {
@@ -38,6 +46,10 @@ public class Team {
 	public Team(String name, List<Player> players) {
 		this.name = name;
 		this.players = players;
+	}
+	
+	public int getTeamId() {
+		return this.team_id;
 	}
 	
 	public String getName() {
@@ -64,6 +76,78 @@ public class Team {
 
 	public void setTeam_img(String team_img) {
 		this.team_img = team_img;
+	}
+
+	public int getPoints() {
+		return points;
+	}
+
+	public void setPoints(int points) {
+		this.points = points;
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
+	public void setPosition(int position) {
+		this.position = position;
+	}
+
+	public int getMatchesPlayed() {
+		return matchesPlayed;
+	}
+
+	public void setMatchesPlayed(int matchesPlayed) {
+		this.matchesPlayed = matchesPlayed;
+	}
+
+	public int getMatchesWon() {
+		return matchesWon;
+	}
+
+	public void setMatchesWon(int matchesWon) {
+		this.matchesWon = matchesWon;
+	}
+
+	public int getMatchesDrawn() {
+		return matchesDrawn;
+	}
+
+	public void setMatchesDrawn(int matchesDrawn) {
+		this.matchesDrawn = matchesDrawn;
+	}
+
+	public int getMatchesLost() {
+		return matchesLost;
+	}
+
+	public void setMatchesLost(int matchesLost) {
+		this.matchesLost = matchesLost;
+	}
+
+	public int getGf() {
+		return gf;
+	}
+
+	public void setGf(int gf) {
+		this.gf = gf;
+	}
+
+	public int getGa() {
+		return ga;
+	}
+
+	public void setGa(int ga) {
+		this.ga = ga;
+	}
+
+	public int getGd() {
+		return gd;
+	}
+
+	public void setGd(int gd) {
+		this.gd = gd;
 	}
 	
 
